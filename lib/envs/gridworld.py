@@ -123,3 +123,10 @@ class GridworldEnv(discrete.DiscreteEnv):
                 outfile.write("\n")
 
             it.iternext()
+        outfile.write('\r')
+
+        if mode == 'ansi':
+            return outfile
+
+    def render(self, mode='human', close=False):
+        return self._render(mode, close)
