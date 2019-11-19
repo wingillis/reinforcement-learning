@@ -59,6 +59,23 @@ def plot_value_function(V, title="Value Function"):
     plot_surface(X, Y, Z_ace, "{} (Usable Ace)".format(title))
 
 
+def plot_gridworld_value_function(V, view_angle=-30, title='value function'):
+    assert V.ndim == 2, 'please reshape V into a matrix'
+    fig = plt.figure(figsize=(6.5, 5.5))
+    ax = fig.add_subplot(111, projection='3d')
+    X, Y = np.meshgrid(np.arange(V.shape[0]), np.arange(V.shape[1]))
+    surf = ax.plot_surface(X, Y, V, cmap='mako')
+    ax.set_zlabel('estimated V')
+    ax.view_init(ax.elev, view_angle)
+    ax.set_title(title)
+    return fig
+
+def plot_value_updates(deltas):
+    fig, ax = plt.subplots(1, 1, figsize=(5, 3))
+    ax.plot(deltas)
+    ax.set_xlabel('episode')
+    ax.set_ylabel('$|\Delta v_\pi|$')
+    return fig
 
 def plot_episode_stats(stats, smoothing_window=10, noshow=False):
     # Plot the episode length over time
