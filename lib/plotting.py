@@ -16,7 +16,7 @@ def plot_cost_to_go_mountain_car(env, estimator, num_tiles=20):
     fig = plt.figure(figsize=(10, 5))
     ax = fig.add_subplot(111, projection='3d')
     surf = ax.plot_surface(X, Y, Z, rstride=1, cstride=1,
-                           cmap=matplotlib.cm.coolwarm, vmin=-1.0, vmax=1.0)
+                           cmap='coolwarm', vmin=-1.0, vmax=1.0)
     ax.set_xlabel('Position')
     ax.set_ylabel('Velocity')
     ax.set_zlabel('Value')
@@ -25,7 +25,7 @@ def plot_cost_to_go_mountain_car(env, estimator, num_tiles=20):
     plt.show()
 
 
-def plot_value_function(V, title="Value Function"):
+def plot_blackjack_value_function(V, title="Value Function"):
     """
     Plots the value function as a surface plot.
     """
@@ -46,7 +46,7 @@ def plot_value_function(V, title="Value Function"):
         fig = plt.figure(figsize=(20, 10))
         ax = fig.add_subplot(111, projection='3d')
         surf = ax.plot_surface(X, Y, Z, rstride=1, cstride=1,
-                               cmap=matplotlib.cm.coolwarm, vmin=-1.0, vmax=1.0)
+                               cmap='coolwarm', vmin=-1.0, vmax=1.0)
         ax.set_xlabel('Player Sum')
         ax.set_ylabel('Dealer Showing')
         ax.set_zlabel('Value')
@@ -74,7 +74,7 @@ def plot_value_updates(deltas):
     fig, ax = plt.subplots(1, 1, figsize=(5, 3))
     ax.plot(deltas)
     ax.set_xlabel('episode')
-    ax.set_ylabel('$|\Delta v_\pi|$')
+    ax.set_ylabel(r'$|\Delta v_\pi|$')
     return fig
 
 def plot_episode_stats(stats, smoothing_window=10, noshow=False):
