@@ -82,3 +82,6 @@ class CliffWalkingEnv(discrete.DiscreteEnv):
 
             outfile.write(output)
         outfile.write("\n")
+
+        if mode == 'ansi':
+            return outfile

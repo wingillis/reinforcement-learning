@@ -36,6 +36,7 @@ class GridworldEnv(discrete.DiscreteEnv):
         assert n_goals <= 2 and n_goals > 0, 'must have 1 or 2 goals only'
 
         self.shape = shape
+        self.n_goals = 2
 
         nS = np.prod(shape)
         nA = 4
